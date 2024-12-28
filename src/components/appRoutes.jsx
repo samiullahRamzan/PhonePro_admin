@@ -2,7 +2,7 @@ import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { Dashboard,Users,Ads,Posts,Chat,LogIn,Profile,NotFound } from '../pagesPath'
 
-const appRoutes = () => {
+const AppRoutes = () => {
   return (
     <Routes>
         <Route path='/' element={<Dashboard/> } />
@@ -17,4 +17,4 @@ const appRoutes = () => {
   )
 }
 
-export default appRoutes
+export default AppRoutes

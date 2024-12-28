@@ -2,13 +2,11 @@
     display: flex;
     flex-direction: column;
     gap:2.3rem;
-   
     height:94vh
 }
 
 .logo{
     text-align: center;
-
     align-items: center;
     padding: 20px;
     color: var(--primary-color);
@@ -39,7 +37,15 @@
     color: var(--primary-color);
 }
 
-.menu--list .item:hover{
+.image{
+    width: 60px;
+}
+/* .menu--list .item:hover{
     background: var(--primary-color);
+    color:  var(--bg-color);
+} */
+
+.menu--list .item.active{
+    background: var(--primary-color);   
     color:  var(--bg-color);
 }
