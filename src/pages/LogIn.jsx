@@ -1,20 +1,39 @@
 import React, { useState } from "react";
 import "../styles/LogIn.css";
 
+import { login } from "../axios/auth_axios";
+import { useNavigate } from "react-router-dom";
+
 const LogIn = ({ onLogin }) => {
   const [Email, setEmail] = useState();
   const [Password, setPassword] = useState();
 
+  const Navigate = useNavigate();
+
+  console.log("here is email", Email);
+  console.log("here is password", Password);
+
+  const submitLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await login(Email, Password);
+      console.log("here is response in login screen", response);
+      if (response) {
+        onLogin();
+        Navigate("/"); // naviagte to login
+      }
+    } catch (error) {
+      alert(error);
+    }
+  };
+
   return (
     <div className="main">
-      <img
-        src="../../public/mobilePicture.jpg"
-        alt="mobile pic"
-        className="login-image"
-      />
+      <img src="mobilePicture.jpg" alt="mobile pic" className="login-image" />
 
       <div className="sub-main">
-        <img src="../../public/phonePro.png" className="logo-image" />
+        <img src="phonePro.png" className="logo-image" />
         <div className="login-card">
           <form className="login-form">
             <div className="textField">
@@ -29,6 +48,7 @@ const LogIn = ({ onLogin }) => {
                 value={Email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
+                autoComplete="email"
               />
             </div>
 
@@ -44,9 +64,15 @@ const LogIn = ({ onLogin }) => {
                 value={Password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
+                autoComplete="password"
+                minLength={8}
               />
             </div>
-            <button type="submit" className="submit-button">
+            <button
+              type="submit"
+              className="submit-button"
+              onClick={submitLogin}
+            >
               Log In
             </button>
           </form>
