@@ -1,17 +1,28 @@
-import React from 'react'
-import Sidebar from './components/Sidebar'
-import AppRoutes from './components/appRoutes'
-import './App.css'
+import React, { useState } from "react";
+import Sidebar from "./components/Sidebar";
+import AppRoutes from "./components/appRoutes";
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import { LogIn } from "./pagesPath";
 
 const App = () => {
-  return (
-    <div className='dashboard'>
-      <Sidebar/>
-      <div className="dashboard--content">
-        <AppRoutes/>
-      </div>
-    </div>  
-  )
-}   
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-export default App
+  const handleLogin = () => [setIsLoggedIn(true)];
+
+  return isLoggedIn ? (
+    <div className="dashboard">
+      <Sidebar />
+      <div className="dashboard--content">
+        <AppRoutes />
+      </div>
+    </div>
+  ) : (
+    <Routes>
+      <Route path="/LogIn" element={<LogIn onLogin={handleLogin} />} />
+      {/* <Route path="*" element={<Navigate to="/login" replace />} /> */}
+    </Routes>
+  );
+};
+
+export default App;
