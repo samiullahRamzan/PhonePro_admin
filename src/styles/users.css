@@ -1,0 +1,36 @@
+nav {
+  display: inline-flex;
+  border: 1px solid black; /* Border around the nav */
+  margin-bottom: 10px;
+  justify-content: center; /* Center items */
+  margin-top: 30px; /* Space above nav */
+  border-radius: 5px; /* Rounded corners */
+  background-color: hsl(0, 0%, 98%); /* Light background color */
+}
+
+.item {
+  display: flex;
+  gap: 5px; /* Space between icon and text */
+  font-size: 1rem; /* Font size of text */
+  font-weight: 600; /* Bold text */
+  align-items: center; /* Center items vertically */
+  text-decoration: none; /* Remove underline */
+  padding: 10px 15px; /* Padding for better clickable area */
+  color: #4b0082; /* Dark purple text color */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transitions */
+}
+
+.item:hover {
+  background-color: #e0e0e0; /* Light grey on hover */
+  color: #000; /* Change text color on hover */
+}
+
+.item.active {
+  background-color: #4b0082; /* Dark purple for active state */
+  color: #fff; /* White text for active state */
+}
+
+/* .icon {
+  font-size: 1.5rem; 
+  color: #4b0082; 
+} */

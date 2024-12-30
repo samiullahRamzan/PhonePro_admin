@@ -15,8 +15,7 @@ const Sidebar = () => {
   return (
     <div className="menu">
       <div className="logo">
-        <img src="phonePro.png" alt="phone pro logo" className="image" />
-        <h2>PhonePro</h2>
+        <img src="phonePro1.png" alt="phone pro logo" className="image" />
       </div>
 
       <div className="menu--list">

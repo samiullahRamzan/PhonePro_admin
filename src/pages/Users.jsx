@@ -1,20 +1,29 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { BiSolidUserAccount } from "react-icons/bi";
+import { GiShop } from "react-icons/gi";
+
+import "../styles/users.css";
+import { useEffect } from "react";
 const Users = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    navigate("regular-user");
+  }, []);
   return (
     <div>
-      <h2>User/Shop</h2>
+      <h3>User/Shop</h3>
       <nav>
         <NavLink to="regular-user" className="item">
           <BiSolidUserAccount className="icon" />
-          Regular User
+          User
         </NavLink>
         <NavLink to="shop" className="item">
-          <BiSolidUserAccount className="icon" />
+          <GiShop className="icon" />
           Shop
         </NavLink>
-        <Outlet />
       </nav>
+      <Outlet />
     </div>
   );
 };

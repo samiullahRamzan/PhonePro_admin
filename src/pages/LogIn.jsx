@@ -19,6 +19,7 @@ const LogIn = ({ onLogin }) => {
     try {
       const response = await login(Email, Password);
       console.log("here is response in login screen", response);
+
       if (response) {
         onLogin();
         Navigate("/"); // naviagte to login
