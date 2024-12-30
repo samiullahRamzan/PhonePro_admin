@@ -5,8 +5,8 @@ import { login } from "../axios/auth_axios";
 import { useNavigate } from "react-router-dom";
 
 const LogIn = ({ onLogin }) => {
-  const [Email, setEmail] = useState();
-  const [Password, setPassword] = useState();
+  const [Email, setEmail] = useState("samidev336@gmail.com");
+  const [Password, setPassword] = useState("S@mi6504");
 
   const Navigate = useNavigate();
 

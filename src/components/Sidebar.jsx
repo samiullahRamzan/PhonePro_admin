@@ -1,10 +1,7 @@
 import React from "react";
 import {
-  BiBookAlt,
   BiHome,
   BiSolidUserAccount,
-  BiChat,
-  BiLogIn,
   BiUserCircle,
   BiMessage,
 } from "react-icons/bi";
