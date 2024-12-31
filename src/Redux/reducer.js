@@ -1,11 +1,11 @@
-import { ADD_TO_CART } from "./constants";
+import { ADD_TOKEN } from "./constants";
 
-const initialState = [];
+const initialState = null;
 
-export const Reducer = (state = initialState, action) => {
+export const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_TO_CART:
-      return [...state, action.data];
+    case ADD_TOKEN:
+      return action.data;
     default:
       return state;
   }

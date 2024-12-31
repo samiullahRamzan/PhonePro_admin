@@ -1,8 +1,8 @@
-import { ADD_TO_CART } from "./constants";
+import { ADD_TOKEN } from "./constants";
 
-export function addToCart(item){
-    return{
-        type:ADD_TO_CART,
-        data:item
-    }
+export function addToken(item) {
+  return {
+    type: ADD_TOKEN,
+    data: item,
+  };
 }
