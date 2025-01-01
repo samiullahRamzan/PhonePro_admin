@@ -23,8 +23,8 @@ const LogIn = ({ onLogin }) => {
       const response = await login(Email, Password);
       console.log("here is response in login screen", response);
 
-      dispatch(addToken(response.token));
       if (response) {
+        dispatch(addToken(response.token));
         onLogin();
         Navigate("/"); // naviagte to login
       }
