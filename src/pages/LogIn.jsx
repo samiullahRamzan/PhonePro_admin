@@ -3,11 +3,14 @@ import "../styles/LogIn.css";
 
 import { login } from "../axios/auth_axios";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addToken } from "../Redux/action";
 
 const LogIn = ({ onLogin }) => {
   const [Email, setEmail] = useState("samidev336@gmail.com");
   const [Password, setPassword] = useState("S@mi6504");
 
+  const dispatch = useDispatch();
   const Navigate = useNavigate();
 
   console.log("here is email", Email);
@@ -20,6 +23,7 @@ const LogIn = ({ onLogin }) => {
       const response = await login(Email, Password);
       console.log("here is response in login screen", response);
 
+      dispatch(addToken(response.token));
       if (response) {
         onLogin();
         Navigate("/"); // naviagte to login
