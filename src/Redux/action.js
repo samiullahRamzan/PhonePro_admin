@@ -1,8 +1,8 @@
-import { ADD_TOKEN } from "./constants";
+import { User } from "./constants";
 
-export function addToken(item) {
+export function addUser(item) {
   return {
-    type: ADD_TOKEN,
+    type: User,
     data: item,
   };
 }

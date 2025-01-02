@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "../styles/LogIn.css";
 
 import { login } from "../axios/auth_axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addToken } from "../Redux/action";
+import { addUser } from "../Redux/action";
 
 const LogIn = ({ onLogin }) => {
   const [Email, setEmail] = useState("samidev336@gmail.com");
@@ -22,9 +22,10 @@ const LogIn = ({ onLogin }) => {
     try {
       const response = await login(Email, Password);
       console.log("here is response in login screen", response);
+      localStorage.setItem("token", response.token);
 
       if (response) {
-        dispatch(addToken(response.token));
+        dispatch(addUser(response));
         onLogin();
         Navigate("/"); // naviagte to login
       }
