@@ -21,3 +21,23 @@ export const viewUsers = async () => {
     throw new Error(message);
   }
 };
+
+export const deleteUser = async (userId) => {
+  try {
+    const res = await axios.delete(
+      `http://${ipAddress}:3000/api/admin_Users/delete_user/${userId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, // Correctly set the Authorization header
+        },
+      }
+    );
+
+    console.log("axios response", res.data);
+    return res.data;
+  } catch (error) {
+    console.error("Error during delete user:", error);
+    const message = error.response?.data?.message || "delete user failed";
+    throw new Error(message);
+  }
+};
