@@ -1,46 +1,91 @@
-.table-container {
-  margin: 20px;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  background-color: #f9f9f9;
-}
-
 .custom-table {
+  padding: 1.2rem;
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
+  box-shadow: var(--login-shadow);
+}
+
+.custom-table thead tr {
+  text-align: left;
+  font-weight: bold;
+  background-color: var(--bg-color); /* #009879*/
 }
 
 .custom-table th,
 .custom-table td {
-  padding: 12px 15px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
+  padding: 1rem 0.8rem;
+  color: var(--primary-color);
 }
 
-.custom-table th {
-  background-color: #4caf50;
-  color: white;
-  font-weight: bold;
+.delete_icon {
+  color: red;
+  font-size: 1.4rem;
+  /* transition: 0.3s ease-in-out; */
+  align-self: flex-end;
 }
 
-.custom-table tr:hover {
-  background-color: #f1f1f1; /* Change row background color on hover */
+.delete_icon:active {
+  /* color: red; */
+  transform: scale(1.5);
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
-.main_row {
-  transition: background-color 0.3s;
+.delete_icon:hover {
+  /* color: red; */
+  cursor: pointer;
 }
 
-.main_row:nth-child(even) {
-  background-color: #f2f2f2; /* Alternate row color */
+.custom-table tbody tr {
+  border-bottom: 1px solid #dddd;
 }
 
-.main_row:nth-child(odd) {
-  background-color: #ffffff;
+.custom-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
 }
 
-.main_row td {
-  vertical-align: middle; /* Center align cell content */
+.custom-table tbody tr:last-of-type {
+  border-bottom: 5px solid var(--bg-color);
+}
+
+.custom-table td:nth-child(5) {
+  text-align: center;
+}
+
+/* .custom-table th:nth-child(1),
+.custom-table td:nth-child(1) {
+  width: 10%;
+} */
+
+.custom-table th:nth-child(2),
+.custom-table td:nth-child(2) {
+  width: auto;
+}
+
+.custom-table td:nth-child(2) {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+}
+
+/* .custom-table th:nth-child(3),
+.custom-table td:nth-child(3) {
+  width: 30%;
+}
+
+.custom-table th:nth-child(4),
+.custom-table td:nth-child(4) {
+  width: 20%;
+}
+.custom-table th:nth-child(5),
+.custom-table td:nth-child(5) {
+  width: 15%;
+} */
+
+.Profile_img {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  object-fit: cover;
+  background-color: var(--secondary-color);
+  flex-shrink: 0;
 }
