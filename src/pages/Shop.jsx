@@ -17,6 +17,7 @@ const Shop = () => {
             <th>Shop Name</th>
             <th>Shop Owner</th>
             <th>Email</th>
+            <th>Shop Images</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -33,6 +34,15 @@ const Shop = () => {
               </td>
               <td>{shop.shopOwnerName}</td>
               <td>{shop.email}</td>
+              <td>
+                {shop?.images.map((image, index) => (
+                  <img
+                    key={index}
+                    src={image || "/profile1.jpg"}
+                    className="Profile_img"
+                  />
+                ))}
+              </td>
               <td>
                 <MdDelete className="delete_icon" />
               </td>
