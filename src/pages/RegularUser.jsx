@@ -1,24 +1,20 @@
 import { useOutletContext } from "react-router-dom";
 import { MdDelete } from "react-icons/md";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import "../styles/regularUser.css";
-import { deleteUser } from "../axios/users_axios";
+import { delete_user } from "../components/api/deleteUser";
 
 const RegularUser = () => {
   const { data } = useOutletContext();
-  const [User, setUser] = useState(data?.user || []);
+  const [User, setUser] = useState([]);
 
-  const delete_user = async (userId) => {
-    try {
-      const response = await deleteUser(userId);
-      console.log("here is a response ", response);
-      // Update frontend state
-      setUser((prevUsers) => prevUsers.filter((user) => user._id !== userId));
-    } catch (error) {
-      alert(error);
+  // Update User state whenever data changes
+  useEffect(() => {
+    if (data?.user) {
+      setUser(data.user);
     }
-  };
+  }, [data]);
 
   return (
     <div className="table-container">
@@ -49,7 +45,7 @@ const RegularUser = () => {
               <td>
                 <MdDelete
                   className="delete_icon"
-                  onClick={() => delete_user(user._id)}
+                  onClick={() => delete_user(setUser, user._id)}
                 />
               </td>
             </tr>

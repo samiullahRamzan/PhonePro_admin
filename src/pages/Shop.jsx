@@ -1,25 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import { MdDelete } from "react-icons/md";
-import { deleteUser } from "../axios/users_axios";
-
 import "../styles/regularUser.css";
+import { delete_user } from "../components/api/deleteUser";
 
 const Shop = () => {
   const { data } = useOutletContext();
 
-  const [Shops, setShops] = useState(data?.shop || []);
+  const [Shops, setShops] = useState(data?.shop);
 
-  const delete_user = async (userId) => {
-    try {
-      const response = await deleteUser(userId);
-      console.log("here is a response ", response);
-      // Update frontend state
-      setShops((prevUsers) => prevUsers.filter((user) => user._id !== userId));
-    } catch (error) {
-      alert(error);
-    }
-  };
   return (
     <div className="table-container">
       <table className="custom-table">
@@ -58,7 +47,7 @@ const Shop = () => {
               <td>
                 <MdDelete
                   className="delete_icon"
-                  onClick={() => delete_user(shop._id)}
+                  onClick={() => delete_user(setShops, shop._id)}
                 />
               </td>
             </tr>
