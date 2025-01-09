@@ -1,7 +1,10 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom";
+import AdCard from "../../components/AdCard";
 
 const RegularUserAd = () => {
-  const { data } = useContext();
+  const { data } = useOutletContext();
+  console.log("here is data in ad", data);
   const [UserAd, setUserAd] = useState([]);
 
   useEffect(() => {
@@ -10,11 +13,11 @@ const RegularUserAd = () => {
     }
   }, [data]);
 
-  return (
-    <div>
-      <div>regular user ad</div>
-    </div>
-  );
+  if (UserAd.length === 0) {
+    return <div className="container">No ads available.</div>;
+  }
+
+  return <AdCard Ad={UserAd} />;
 };
 
 export default RegularUserAd;

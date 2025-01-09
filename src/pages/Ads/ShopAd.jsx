@@ -1,7 +1,11 @@
-import React from "react";
+import { useState } from "react";
+import { useOutletContext } from "react-router-dom";
+import AdCard from "../../components/AdCard";
 
 const ShopAd = () => {
-  return <div>shop ad</div>;
+  const { data } = useOutletContext();
+  const [shopAd, setShopAd] = useState(data?.shopAd);
+  return <AdCard Ad={shopAd} />;
 };
 
 export default ShopAd;

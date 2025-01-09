@@ -12,7 +12,7 @@ const Ads = () => {
       try {
         const response = await viewAds();
         console.log("Ads response", response);
-        setData(data);
+        setData(response);
       } catch (error) {
         alert(error);
       }
