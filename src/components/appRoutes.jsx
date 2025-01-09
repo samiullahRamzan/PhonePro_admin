@@ -10,6 +10,8 @@ import {
   Shop,
   Profile,
   NotFound,
+  RegularUserAd,
+  ShopAd,
 } from "../pagesPath";
 
 const AppRoutes = () => {
@@ -22,7 +24,11 @@ const AppRoutes = () => {
         <Route path="shop" element={<Shop />} />
       </Route>
 
-      <Route path="/ads" element={<Ads />} />
+      <Route path="/ads" element={<Ads />}>
+        <Route path="regular-userAd" element={<RegularUserAd />} />
+        <Route path="shopAd" element={<ShopAd />} />
+      </Route>
+
       <Route path="/posts" element={<Posts />} />
       <Route path="/chat" element={<Chat />} />
       <Route path="/profile" element={<Profile />} />
