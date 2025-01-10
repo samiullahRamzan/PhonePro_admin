@@ -21,3 +21,26 @@ export const viewAds = async () => {
     throw new Error(message);
   }
 };
+export const updateAdStatus = async (id, status, statusReason) => {
+  try {
+    const res = await axios.patch(
+      `http://${ipAddress}:3000/api/admin_Ads/update_Ad/${id}`,
+      {
+        status,
+        statusReason,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, // Correctly set the Authorization header
+        },
+      }
+    );
+
+    console.log("axios response", res.data);
+    return res.data;
+  } catch (error) {
+    console.error("Error during update ad status:", error);
+    const message = error.response?.data?.message || "Error in updating ads";
+    throw new Error(message);
+  }
+};

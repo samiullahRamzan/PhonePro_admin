@@ -97,3 +97,15 @@
   background-color: #fff;
   cursor: pointer;
 }
+
+.status_button {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 5px;
+  margin-top: 10px;
+  transition: 0.3 ease-in-out;
+}
+
+.status_button:hover {
+  background-color: var(--primary-color);
+}

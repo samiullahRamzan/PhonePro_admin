@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FaLocationPin } from "react-icons/fa6";
 import "../styles/regularUserAd.css";
 import Modal from "./AdModal";
+import { updateAdStatus } from "../axios/Ad_axios";
 
 const AdCard = ({ Ad }) => {
   const [selectedAd, setSelectedAd] = useState(null);
@@ -15,6 +16,16 @@ const AdCard = ({ Ad }) => {
   const closeModal = () => {
     setSelectedAd(null);
     setIsModalOpen(false);
+  };
+
+  const updateAd = async (id, status, statusReason) => {
+    try {
+      const response = await updateAdStatus(id, status, statusReason);
+      console.log("here is update ad response", response);
+    } catch (error) {
+      console.log("here is an error in update ad", error);
+      alert(error);
+    }
   };
 
   return (
@@ -34,7 +45,12 @@ const AdCard = ({ Ad }) => {
           </div>
         </div>
       ))}
-      <Modal isOpen={isModalOpen} onClose={closeModal} Ad={selectedAd} />
+      <Modal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        Ad={selectedAd}
+        updateAd={updateAd}
+      />
     </div>
   );
 };

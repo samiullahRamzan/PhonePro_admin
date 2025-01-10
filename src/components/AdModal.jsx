@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../styles/AdModal.css";
 import CustomDropdown from "./CustomDropdown";
 
-const Modal = ({ isOpen, onClose, Ad }) => {
+const Modal = ({ isOpen, onClose, Ad, updateAd }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState("Pending");
   const [statusReason, setStatusReason] = useState("");
@@ -42,7 +42,18 @@ const Modal = ({ isOpen, onClose, Ad }) => {
         </div>
         <h4>{Ad.brand}</h4>
         <p>Rs. {Ad.price}</p>
-        {Ad?.createdBy?.shopName && <h5>{Ad.createdBy.shopName}</h5>}
+        {Ad?.createdBy?.fullName && (
+          <p>
+            <strong>Created By:</strong>
+            {Ad.createdBy.fullName}
+          </p>
+        )}
+        {Ad?.createdBy?.shopName && (
+          <p>
+            <strong>Created By:</strong>
+            {Ad.createdBy.shopName}
+          </p>
+        )}
         <p>
           <strong>Condition:</strong> {Ad.condition}
         </p>
@@ -74,6 +85,15 @@ const Modal = ({ isOpen, onClose, Ad }) => {
               required
             />
           </div>
+        )}
+
+        {(selectedOption == "approved" || selectedOption == "rejected") && (
+          <button
+            className="status_button"
+            onClick={() => updateAd(Ad._id, selectedOption, statusReason)}
+          >
+            update ad status
+          </button>
         )}
       </div>
     </div>
