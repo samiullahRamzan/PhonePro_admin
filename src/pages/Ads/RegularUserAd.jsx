@@ -17,7 +17,7 @@ const RegularUserAd = () => {
     return <div className="container">No ads available.</div>;
   }
 
-  return <AdCard Ad={UserAd} />;
+  return <AdCard Ads={UserAd} />;
 };
 
 export default RegularUserAd;

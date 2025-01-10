@@ -2,11 +2,13 @@ import { useState } from "react";
 import { FaLocationPin } from "react-icons/fa6";
 import "../styles/regularUserAd.css";
 import Modal from "./AdModal";
-import { updateAdStatus } from "../axios/Ad_axios";
+import { deleteAd, updateAdStatus } from "../axios/Ad_axios";
+import { RiDeleteBin6Line } from "react-icons/ri";
 
-const AdCard = ({ Ad }) => {
+const AdCard = ({ Ads }) => {
   const [selectedAd, setSelectedAd] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [Ad, setAd] = useState(Ads);
 
   const handleViewDetails = (ad) => {
     setSelectedAd(ad);
@@ -28,11 +30,32 @@ const AdCard = ({ Ad }) => {
     }
   };
 
+  const delete_Ad = async (id) => {
+    try {
+      const response = await deleteAd(id);
+      console.log("here is delete ad response", response);
+
+      setAd((ads) => ads.filter((ad) => ad._id != id));
+    } catch (error) {
+      console.log("here is an error in delete ad", error);
+      alert(error);
+    }
+  };
+
   return (
     <div className="main">
       {Ad.map((ad, index) => (
         <div key={index} className="card">
-          <img src={ad.images[0]} className="card-img" alt={ad.brand} />
+          <div className="image-container">
+            <div className={`status-label ${ad.status.toLowerCase()}`}>
+              {ad.status}
+            </div>
+            <RiDeleteBin6Line
+              className="delete-icon"
+              onClick={() => delete_Ad(ad._id)}
+            />
+            <img src={ad.images[0]} className="card-img" alt={ad.brand} />
+          </div>
           <div className="card-content">
             <h4>{ad.brand}</h4>
             <p>Rs.{ad.price}</p>

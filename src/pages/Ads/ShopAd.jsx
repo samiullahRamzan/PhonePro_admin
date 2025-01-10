@@ -5,7 +5,7 @@ import AdCard from "../../components/AdCard";
 const ShopAd = () => {
   const { data } = useOutletContext();
   const [shopAd, setShopAd] = useState(data?.shopAd);
-  return <AdCard Ad={shopAd} />;
+  return <AdCard Ads={shopAd} />;
 };
 
 export default ShopAd;
