@@ -4,7 +4,6 @@ import AdCard from "../../components/AdCard";
 
 const RegularUserAd = () => {
   const { data } = useOutletContext();
-  console.log("here is data in ad", data);
   const [UserAd, setUserAd] = useState([]);
 
   useEffect(() => {

@@ -4,12 +4,10 @@ import CustomDropdown from "./CustomDropdown";
 
 const Modal = ({ isOpen, onClose, Ad, updateAd }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [selectedOption, setSelectedOption] = useState("Pending");
   const [statusReason, setStatusReason] = useState("");
+  const [selectedOption, setSelectedOption] = useState("Pending");
 
   if (!isOpen) return null;
-
-  console.log("here is ad in modal component ", Ad);
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) =>
@@ -40,6 +38,7 @@ const Modal = ({ isOpen, onClose, Ad, updateAd }) => {
             &#8594;
           </button>
         </div>
+
         <h4>{Ad.brand}</h4>
         <p>Rs. {Ad.price}</p>
         {Ad?.createdBy?.fullName && (
@@ -57,6 +56,16 @@ const Modal = ({ isOpen, onClose, Ad, updateAd }) => {
         <p>
           <strong>Condition:</strong> {Ad.condition}
         </p>
+        {Ad?.quantity && (
+          <>
+            <p>
+              <strong>Quantity:</strong> {Ad.quantity}
+            </p>
+            <p>
+              <strong>Colors:</strong> {Ad.colors.join(", ")}
+            </p>
+          </>
+        )}
         <p>
           <strong>Location:</strong> {Ad.location}
         </p>

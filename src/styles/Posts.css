@@ -1,0 +1,58 @@
+.main-d {
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  display: flex;
+  margin-top: 20px;
+}
+
+.post-card {
+  width: 24%;
+  background-color: var(--bg-color);
+  box-shadow: var(--login-shadow);
+  border-radius: 0.5rem;
+  color: var(--primary-color);
+}
+
+.post-img {
+  height: 200px !important;
+}
+
+.like_com_share {
+  display: flex;
+  justify-content: space-between;
+}
+
+.l_c_s {
+  display: flex;
+  gap: 0.2rem;
+  align-items: center;
+  color: var(--secondary-color);
+}
+
+.comment-img {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 1rem;
+}
+
+.comment-heading {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.comment-view {
+  font-size: 10px;
+  margin-bottom: 10px;
+}
+
+.comment-heading img {
+  margin-right: 5px;
+}
+
+.name_date {
+  font-size: 10px;
+}
+
+.name {
+  font-weight: bold;
+}
