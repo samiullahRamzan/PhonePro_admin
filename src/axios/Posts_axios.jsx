@@ -21,3 +21,47 @@ export const viewPosts = async () => {
     throw new Error(message);
   }
 };
+
+export const deletePost = async (id) => {
+  try {
+    const res = await axios.delete(
+      `http://${ipAddress}:3000/api/admin_Posts/delete_Post/${id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, // Correctly set the Authorization header
+        },
+      }
+    );
+
+    console.log("axios response", res.data);
+    return res.data;
+  } catch (error) {
+    console.error("Error during deleting posts:", error);
+    const message = error.response?.data?.message || "Error in delering post";
+    throw new Error(message);
+  }
+};
+
+export const updatePostStatus = async (id, status, statusReason) => {
+  try {
+    const res = await axios.patch(
+      `http://${ipAddress}:3000/api/admin_Posts/update_PostStatus/${id}`,
+      {
+        status,
+        statusReason,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, // Correctly set the Authorization header
+        },
+      }
+    );
+
+    console.log("axios response", res.data);
+    return res.data;
+  } catch (error) {
+    console.error("Error during update post status:", error);
+    const message = error.response?.data?.message || "Error in updating post";
+    throw new Error(message);
+  }
+};
