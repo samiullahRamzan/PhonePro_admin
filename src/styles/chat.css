@@ -1,0 +1,47 @@
+.main {
+  height: 80vh;
+}
+
+.sidebar-chat {
+  width: 30%;
+}
+
+.sidebar-chat h3 {
+  margin-bottom: 2rem;
+}
+
+.container {
+  margin-bottom: 0.7rem;
+  display: flex;
+  transition: 0.3s ease-in-out;
+}
+
+.container:hover {
+  background-color: var(--bg-color);
+  cursor: pointer;
+}
+
+.container img {
+  width: 3rem;
+  height: 3rem;
+  margin-right: 0.5rem;
+  border-radius: 1.5rem;
+}
+
+.Name div:nth-child(1) {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.Name div:nth-child(2) {
+  font-size: 0.7rem;
+}
+
+.container div:nth-child(3) {
+  font-size: 0.7rem;
+}
+
+.chat-view {
+  background-color: var(--chat-bgcolor);
+  flex: 1;
+}
