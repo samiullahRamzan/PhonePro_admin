@@ -1,9 +1,11 @@
 .main {
-  height: 80vh;
+  height: 100%;
 }
 
 .sidebar-chat {
   width: 30%;
+  padding-top: 1.5rem;
+  padding-left: 1.5rem;
 }
 
 .sidebar-chat h3 {
@@ -44,4 +46,91 @@
 .chat-view {
   background-color: var(--chat-bgcolor);
   flex: 1;
+  display: flex;
+  flex-direction: column;
 }
+
+.heading {
+  background-color: var(--secondary-color); /* #f9fafc */
+  height: 20%;
+  display: flex;
+  align-items: center;
+  padding: 0rem 1.5rem;
+  color: white;
+}
+
+.heading div:nth-child(2) {
+  font-weight: bold;
+}
+
+.heading img {
+  width: 3rem;
+  height: 3rem;
+  margin-right: 0.5rem;
+  border-radius: 1.5rem;
+}
+
+.bottom {
+  background-color: var(--secondary-color);
+  min-height: 10%;
+  display: flex;
+  align-items: center;
+
+  /* padding: 0rem 1.5rem; */
+  color: white;
+}
+
+.bottom div:nth-child(2) {
+  font-size: 1.2rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.middle {
+  padding: 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.message-input {
+  width: 85%;
+  margin-right: 10px;
+  padding: 1rem 0.5rem;
+}
+
+.scroll {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.message {
+  background-color: var(--secondary-color);
+  width: fit-content;
+  max-width: 60%;
+  margin-bottom: 5px;
+  padding: 5px 7px;
+  font-size: 0.7rem;
+  color: white;
+}
+
+.message.admin {
+  align-items: flex-end; /* Align admin messages to the right */
+  background-color: #007bff; /* Admin message color */
+}
+
+.message.User {
+  align-items: flex-start; /* Align user messages to the left */
+  background-color: #6c757d; /* Regular user message color */
+}
+/* .message {
+    background-color: var(--secondary-color);
+    width: fit-content; 
+    max-width: 70%; 
+    margin-bottom: 5px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    color: white;
+  } */

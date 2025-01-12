@@ -10,3 +10,7 @@
   border-radius: 20px;
   padding: 2rem;
 }
+
+.dashboard--content.no-padding {
+  padding: 0; /* No padding for chat screen */
+}
