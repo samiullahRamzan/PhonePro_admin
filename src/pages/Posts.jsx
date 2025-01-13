@@ -28,8 +28,10 @@ const Posts = () => {
     const getPosts = async () => {
       try {
         const response = await viewPosts();
-        console.log("here is posts response", response.posts);
-        setPosts(response.posts);
+        console.log("here is posts response", response?.posts);
+        setPosts(response?.posts);
+        // set post length
+        localStorage.setItem("TotalPosts", response?.posts.length);
       } catch (error) {
         alert(error);
       }
@@ -45,7 +47,6 @@ const Posts = () => {
     try {
       const response = await deletePost(id);
       console.log(response);
-
       setPosts((prevPost) => prevPost.filter((post) => post._id != id));
     } catch (error) {
       alert(error);

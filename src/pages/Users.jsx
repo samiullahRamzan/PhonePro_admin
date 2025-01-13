@@ -17,6 +17,9 @@ const Users = () => {
       const users_data = await viewUsers();
       console.log("here is users_data", users_data);
       setData(users_data);
+      // set shop and regular user in local Storage
+      localStorage.setItem("TotalShopUsers", users_data.shop.length);
+      localStorage.setItem("TotalRegularUsers", users_data.user.length);
     };
 
     fetchData();

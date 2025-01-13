@@ -13,6 +13,10 @@ const Ads = () => {
         const response = await viewAds();
         console.log("Ads response", response);
         setData(response);
+        // set userAd and shop Ad details in local storage
+        console.log("shop ad length", response.shopAd.length);
+        localStorage.setItem("shopAd", response.shopAd.length);
+        localStorage.setItem("userAd", response.userAd.length);
       } catch (error) {
         alert(error);
       }
