@@ -8,7 +8,6 @@ import {
   Chat,
   RegularUser,
   Shop,
-  Profile,
   NotFound,
   RegularUserAd,
   ShopAd,
@@ -31,7 +30,6 @@ const AppRoutes = () => {
 
       <Route path="/posts" element={<Posts />} />
       <Route path="/chat" element={<Chat />} />
-      <Route path="/profile" element={<Profile />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

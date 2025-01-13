@@ -39,11 +39,6 @@ const Sidebar = () => {
           <BiMessage className="icon" />
           Chat
         </NavLink>
-
-        <NavLink to="/profile" className="item">
-          <BiUserCircle className="icon" />
-          Profile
-        </NavLink>
       </div>
     </div>
   );
