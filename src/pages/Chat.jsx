@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import "../styles/chat.css";
-import { getAllChats } from "../axios/Chat_axios";
+import { getAllChats, sendMessage } from "../axios/Chat_axios";
 import { useState } from "react";
 import { getFormattedDate } from "../components/formatDate";
 import { IoSend } from "react-icons/io5";
@@ -42,6 +42,17 @@ const Chat = () => {
   const handleChat = async (chat1) => {
     console.log("here is chat in handle chat..", chat1);
     setChat(chat1);
+  };
+
+  const send_Message = async (receiverId, message) => {
+    try {
+      const response = sendMessage(receiverId, message);
+      console.log(response);
+
+      setMessage("");
+    } catch (error) {
+      alert(error);
+    }
   };
 
   return (
@@ -105,7 +116,16 @@ const Chat = () => {
             />
             <div>
               <FaPaperclip />
-              <IoSend />
+              <IoSend
+                onClick={() =>
+                  send_Message(
+                    chat.receiver._id == loginAdmin_id
+                      ? chat.sender._id
+                      : chat.receiver._id,
+                    message
+                  )
+                }
+              />
             </div>
           </div>
         </div>
