@@ -1,11 +1,15 @@
-import React from 'react'
+import Content from "../components/content";
+import Profile from "../components/Profile";
+
+import "../styles/dashboard.css";
 
 const Dashboard = () => {
   return (
-    <div>
-       dashboard
+    <div className="dashboard-main">
+      <Content />
+      <Profile />
     </div>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;

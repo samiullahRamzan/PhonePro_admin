@@ -1,16 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import "../styles/users.css";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import { viewUsers } from "../axios/users_axios";
 import User_Shop from "../components/User_Shop";
 
 const Users = () => {
   const navigate = useNavigate();
   const [data, setData] = useState();
-
-  // const response_user = useSelector((state) => state.user);
-  // console.log("here is a response in Users", response_user);
 
   useEffect(() => {
     navigate("regular-user");
