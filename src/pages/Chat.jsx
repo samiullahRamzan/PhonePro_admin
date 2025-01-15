@@ -107,7 +107,7 @@ const Chat = () => {
   };
 
   return (
-    <div className="main">
+    <div className="main-chat">
       <div className="sidebar-chat">
         <h3>Chats</h3>
 

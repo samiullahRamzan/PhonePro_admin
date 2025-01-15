@@ -9,6 +9,9 @@ const RegularUser = () => {
   const { data } = useOutletContext();
   const [User, setUser] = useState([]);
 
+  const role = localStorage.getItem("role");
+  console.log("here is role", role);
+
   // Update User state whenever data changes
   useEffect(() => {
     if (data?.user) {
@@ -42,12 +45,16 @@ const RegularUser = () => {
               </td>
               <td>{user.email}</td>
               <td>{user.phone}</td>
-              <td>
-                <MdDelete
-                  className="delete_icon"
-                  onClick={() => delete_user(setUser, user._id)}
-                />
-              </td>
+              {role == "super_admin" ? (
+                <td>
+                  <MdDelete
+                    className="delete_icon"
+                    onClick={() => delete_user(setUser, user._id)}
+                  />
+                </td>
+              ) : (
+                <td>Cannot delete</td>
+              )}
             </tr>
           ))}
         </tbody>

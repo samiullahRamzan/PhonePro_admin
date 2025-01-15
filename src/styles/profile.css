@@ -48,3 +48,19 @@
   border-radius: 50%;
   background-color: #fff;
 }
+
+.createAdmin_button {
+  background-color: var(--secondary-color);
+  padding: 7px 10px;
+  color: white;
+  width: 50%;
+  align-self: center;
+  margin-top: 20px;
+  border: 0;
+  border-radius: 10px;
+  transition: 0.3s ease-in-out;
+}
+
+.createAdmin_button:active {
+  background-color: var(--primary-color);
+}

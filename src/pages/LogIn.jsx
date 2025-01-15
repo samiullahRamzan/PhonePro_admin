@@ -24,6 +24,7 @@ const LogIn = ({ onLogin }) => {
       console.log("here is response in login screen", response);
       localStorage.setItem("token", response.token);
       localStorage.setItem("admin_id", response.admin._id);
+      localStorage.setItem("role", response.admin.role);
 
       if (response) {
         dispatch(addUser(response));

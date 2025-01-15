@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import "../styles/AdModal.css";
 import CustomDropdown from "./CustomDropdown";
 
@@ -6,6 +6,12 @@ const Modal = ({ isOpen, onClose, Post, updatePost }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [statusReason, setStatusReason] = useState("");
   const [selectedOption, setSelectedOption] = useState("Pending");
+
+  useEffect(() => {
+    if (isOpen && Post?.status) {
+      setSelectedOption(Post.status); // Synchronize state with Post.status
+    }
+  }, [isOpen, Post]);
 
   if (!isOpen) return null;
 
@@ -48,7 +54,7 @@ const Modal = ({ isOpen, onClose, Post, updatePost }) => {
             setSelectedOption={setSelectedOption}
           />
         </div>
-        {selectedOption == "rejected" && (
+        {Post?.status !== "rejected" && selectedOption == "rejected" && (
           <div className="Reason">
             <label htmlFor="Reason" label="reason-label">
               <strong>Status Reason</strong>
@@ -65,14 +71,16 @@ const Modal = ({ isOpen, onClose, Post, updatePost }) => {
           </div>
         )}
 
-        {(selectedOption == "approved" || selectedOption == "rejected") && (
-          <button
-            className="status_button"
-            onClick={() => updatePost(Post._id, selectedOption, statusReason)}
-          >
-            update Post status
-          </button>
-        )}
+        {Post?.status !== "approved" &&
+          Post?.status !== "rejected" &&
+          (selectedOption == "approved" || selectedOption == "rejected") && (
+            <button
+              className="status_button"
+              onClick={() => updatePost(Post._id, selectedOption, statusReason)}
+            >
+              update Post status
+            </button>
+          )}
       </div>
     </div>
   );
