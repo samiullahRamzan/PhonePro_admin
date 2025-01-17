@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
-import { deletePost, updatePostStatus, viewPosts } from "../axios/Posts_axios";
+import {
+  deleteComment,
+  deletePost,
+  updatePostStatus,
+  viewPosts,
+} from "../axios/Posts_axios";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { AiOutlineLike } from "react-icons/ai";
 import { IoMdShareAlt } from "react-icons/io";
@@ -7,6 +12,7 @@ import "../styles/regularUserAd.css";
 import "../styles/Posts.css";
 import Comment_toggling from "../components/comment_toggling";
 import Modal from "../components/PostModal";
+import { MdDelete } from "react-icons/md";
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
@@ -56,6 +62,16 @@ const Posts = () => {
   const updatePost = async (id, status, statusReason) => {
     try {
       const response = await updatePostStatus(id, status, statusReason);
+      console.log("here is update ad response", response);
+    } catch (error) {
+      console.log("here is an error in update ad", error);
+      alert(error);
+    }
+  };
+
+  const delete_comment = async (id1, id2) => {
+    try {
+      const response = await deleteComment(id1, id2);
       console.log("here is update ad response", response);
     } catch (error) {
       console.log("here is an error in update ad", error);
@@ -125,6 +141,10 @@ const Posts = () => {
                           {new Date(comment?.commentedAt).toLocaleString()}
                         </div>
                       </div>
+                      {/* <MdDelete
+                        className="del"
+                        onClick={() => delete_comment(post._id, comment._id)}
+                      /> */}
                     </div>
                     <div className="name_date">{comment.comment}</div>
                   </div>

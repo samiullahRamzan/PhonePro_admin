@@ -166,7 +166,7 @@ const Chat = () => {
               required
             />
             <div>
-              <FaPaperclip />
+              {/* <FaPaperclip /> */}
               <IoSend
                 onClick={() =>
                   send_Message(
